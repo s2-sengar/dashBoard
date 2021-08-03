@@ -145,6 +145,7 @@ a {
 }
 
 .nav__items a {
+  position: relative;
   text-decoration: none;
   color: inherit;
   font-family: inherit;
@@ -157,6 +158,8 @@ a {
       -ms-flex-align: center;
           align-items: center;
   padding-left: 3rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
 }
 
 .nav__items a svg {
@@ -167,6 +170,32 @@ a {
 
 .nav__items a p {
   margin-left: 1rem;
+}
+
+.nav__items a::before {
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 5px;
+  top: 0;
+  right: 0;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  background-color: #F4F6F4;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+}
+
+.nav__items a:hover::before {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.nav__items a:hover {
+  background-color: #5ED85F;
 }
 
 .nav__items--active {
@@ -291,6 +320,14 @@ a {
 
 .btn--primary {
   color: #F4F6F4;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.btn--primary:hover {
+  background-color: #20a720;
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
 }
 
 .btn--cta {
@@ -314,8 +351,6 @@ a {
 .btn--up img {
   -webkit-transition: all .1s ease-in;
   transition: all .1s ease-in;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
 }
 
 .btn--cancel {
@@ -348,8 +383,8 @@ a {
 }
 
 .search--wrapper:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
 }
 
 .search--icon {
@@ -431,8 +466,8 @@ a {
           box-shadow: 1px 2px 5px rgba(10, 10, 10, 0.2);
   padding: 2rem 3rem;
   cursor: pointer;
-  -webkit-transition: all 3s ease-in-out;
-  transition: all 3s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .schedules-item:hover {
@@ -479,7 +514,7 @@ a {
 }
 
 .schedule-form {
-  background-color: rgba(10, 10, 10, 0.2);
+  background-color: rgba(10, 10, 10, 0.5);
   position: fixed;
   z-index: 1111;
   top: 0;
@@ -495,7 +530,7 @@ a {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  padding: 2rem 5rem;
+  padding: 3.5rem 5rem;
   border-radius: 5px;
 }
 

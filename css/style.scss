@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 $color-primary-green:#32CD32;
+$color-tertiary-green:#20a720;
 $color-secondary-green:#5ED85F;
 $color-white-primary:#F4F6F4;
 $color-white-secondary:#FFFFFF;      
@@ -93,6 +94,7 @@ a{
         padding: 1.6rem auto 1.6rem auto;
         margin-bottom: 1rem;
         a{
+            position: relative;
             text-decoration: none;
             color: inherit;
             font-family: inherit;
@@ -101,6 +103,7 @@ a{
             padding-bottom: 1.6rem;
             align-items: center;
             padding-left: 3rem;
+            transition: all .2s;
             svg{
                 height: 3rem;
                 width: auto;
@@ -108,6 +111,24 @@ a{
             }
             p{
                 margin-left: 1rem;
+            }
+            &::before{
+                content: "";
+                display: block;
+                height: 100%;
+                position: absolute;
+                width:5px;
+                top: 0;
+                right: 0;
+                transform: scale(0);
+                background-color: $color-white-primary;
+                transition: transform .4s,
+            }
+            &:hover::before{
+                transform: scale(1);
+            }
+            &:hover{
+                background-color: $color-secondary-green;
             }
         }
         &--active{
@@ -201,6 +222,11 @@ a{
     width: auto;
     &--primary{
         color: $color-white-primary;
+        transition: all .2s;
+        &:hover{
+            background-color: $color-tertiary-green;
+            transform: translateY(-2px);
+        }
     }
     &--cta{
         background-color: transparent;
@@ -215,7 +241,6 @@ a{
     &--up{
         img{
             transition: all .1s ease-in;
-            transform: rotate(180deg);
         }
     }
     &--cancel{
@@ -239,7 +264,7 @@ a{
         position: relative;
         transition: all .2s;
         &:hover{
-            transform: scale(1.1);
+            transform: translateY(-2px)
         }
     }
     &--icon{
@@ -298,7 +323,7 @@ a{
         box-shadow: 1px 2px 5px rgba($color-black-secondary,.2);
         padding: 2rem 3rem;
         cursor: pointer;
-        transition: all 3s ease-in-out;
+        transition: all .2s ease-in-out;
         &:hover{
             transform: translateY(-2px);
         }
@@ -335,7 +360,7 @@ a{
     display: none;
 }
 .schedule-form{
-    background-color: rgba($color-black-secondary,.2);
+    background-color: rgba($color-black-secondary,.5);
     position: fixed;
     z-index: 1111;
     top: 0;
@@ -349,7 +374,7 @@ a{
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    padding: 2rem 5rem;
+    padding: 3.5rem 5rem;
     border-radius: 5px;
     &__head{
         font-size: 1.7rem;
